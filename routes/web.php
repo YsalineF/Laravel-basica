@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Works;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,17 @@ Route::get('/', function () {
     return view('home.index');
 })->name('home');
 
+// ROUTE PORTFOLIO : LISTE DES WORKS
+// PATTERN: /portfolio
+// CTRL: Works
+// ACTION: index
+Route::get('/portfolio', [Works::class, 'index'])->name('works.index');
+
+// ROUTE PORTFOLIO : MORE WORKS
+// PATTERN: /portfolio/ajax/more
+// CTRL: Works
+// ACTION: more
+Route::get('/portfolio/ajax/more', [Works::class, 'more'])->name('works.ajax.more');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
