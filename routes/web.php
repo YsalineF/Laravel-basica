@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ROUTE PAR DEFAUT
+// PATTERN: /
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home.index');
+})->name('home');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
