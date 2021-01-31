@@ -9,21 +9,17 @@ $works
   <script src={{ asset('assets/js/portfolio/index.js') }}></script>
 @endsection
 
+@section('breadcrumbs')
+  our portfolio
+@endsection
+
 @section('title')
   Portfolio
 @endsection
 
 @section('content')
-  <!-- Page Title -->
-  <div class="section section-breadcrumbs">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Our Portfolio</h1>
-        </div>
-      </div>
-    </div>
-  </div>
+  @include('templates.breadcrumbs');
+
   <div class="section">
     <div class="container">
       <div class="row">
