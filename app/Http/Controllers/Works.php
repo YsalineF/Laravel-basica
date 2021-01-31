@@ -24,4 +24,8 @@ class Works extends Controller
                       ->get();
       return view('works._list', compact('works'));
     }
+
+    public function show(Work $work) {
+      return view('works.show', compact('work'));
+    }
 }

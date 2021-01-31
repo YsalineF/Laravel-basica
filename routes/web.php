@@ -32,6 +32,17 @@ Route::get('/portfolio', [Works::class, 'index'])->name('works.index');
 // ACTION: more
 Route::get('/portfolio/ajax/more', [Works::class, 'more'])->name('works.ajax.more');
 
+// ROUTE PORTFOLIO : DETAIL D'UN WORK
+// PATTERN : /portfolio/id/slug
+// CTRL: Works
+// ACTION: show
+Route::get('/portfolio/{work}/{slug}', [Works::class, 'show'])
+        ->where('work', '[1-9][0-9]*')
+        ->where('slug', '[a-z0-9][a-z0-9\-]*')
+        ->name('works.show');
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
