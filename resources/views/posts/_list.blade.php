@@ -22,7 +22,7 @@
         <p>
         {{ Str::words($post->content, 60) }}
         </p>
-        <a href="blog-post.html" class="btn">Read more</a>
+        <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}" class="btn">Read more</a>
       </div>
     </div>
   </div>
