@@ -57,7 +57,11 @@ Route::get('/blog/{post}/{slug}', [Posts::class, 'show'])
         ->where('slug', '[a-z0-9][a-z0-9\-]*')
         ->name('posts.show');
 
-
+// ROUTE PAGE CONTACT
+// PATTERN: /contact-us
+Route::get('/contact-us', function() {
+  return view('contact.index');
+})->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
