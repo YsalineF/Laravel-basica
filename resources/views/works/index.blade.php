@@ -46,7 +46,7 @@ $works
       </div>
 
       <ul class="pager">
-        <li><a href="#" id="portfolio_index_more" data-url="{{ route('works.ajax.more') }}" data-limit="3">More works</a></li>
+        <li><a href="#" id="portfolio_index_more" data-url="{{ route('works.ajax.more') }}" data-limit="6">More works</a></li>
       </ul>
 
     </div>
