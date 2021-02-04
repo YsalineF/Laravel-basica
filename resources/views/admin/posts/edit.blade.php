@@ -19,41 +19,33 @@
              <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                  <div class="p-6 bg-white border-b border-gray-200">
                    <div class="p-6 hover:underline">
-                       <a href="{{ route('admin.posts.index') }}">Retour vers la gestion des posts</a>
+                       <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="{{ route('admin.posts.index') }}">Retour vers la gestion des posts</a>
                    </div>
-                   <h1>Données d'un post</h1>
+                   <h1 class="text-4xl">Edit d'un post</h1>
                    <hr><br>
                    <form action="{{ route('admin.posts.update', $post->id) }}" method="post">
                      {{-- Empêche les tentatives de hacking --}}
                       @csrf
                       {{ method_field('PUT') }}
                       {{-- TITLE --}}
-                      <div>
-                        <label for="title">Title</label>
-                      </div>
-                      <div>
-                        <input type="text" name="title" id="title" value="{{ $post->title }}">
+                      <div class="flex flex-col mb-4">
+                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="title">Title</label>
+                        <input class="border py-2 px-3 text-grey-darkest" type="text" name="title" id="title" value="{{ $post->title }}">
                       </div>
                       {{-- CONTENT --}}
-                      <div>
-                        <label for="content">Content</label>
-                      </div>
-                      <div>
-                        <textarea name="content" id="content" rows="8" cols="80">{{ $post->content }}</textarea>
+                      <div class="flex flex-col mb-4">
+                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="content">Content</label>
+                        <textarea class="border py-2 px-3 text-grey-darkest" name="content" id="content" rows="8" cols="80">{{ $post->content }}</textarea>
                       </div>
                       {{-- IMAGE --}}
-                      <div>
-                        <label for="title">Image : {{ $post->image }} </label>
-                      </div>
-                      <div>
-                        <input type="file" name="image" id="image" value="{{ $post->image }}">
+                      <div class="flex flex-col mb-4">
+                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="title">Image : {{ $post->image }} </label>
+                        <input class="border py-2 px-3 text-grey-darkest" type="file" name="image" id="image" value="{{ $post->image }}">
                       </div>
                       {{-- CATEGORIE --}}
-                      <div>
-                        <label for="categorie_id">Category</label>
-                      </div>
-                      <div>
-                        <select name="categorie_id" id="categorie_id">
+                      <div class="flex flex-col mb-4">
+                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="categorie_id">Category</label>
+                        <select class="border py-2 px-3 text-grey-darkest" name="categorie_id" id="categorie_id">
                           @foreach($categories as $categorie)
                             <option value="{{ $categorie->id }}" @php if($categorie->id === $post->categorie_id) {echo 'selected';} @endphp>
                             {{ $categorie->name }}
@@ -62,7 +54,6 @@
                         </select>
                       </div>
                       {{-- SUBMIT --}}
-                      <br>
                       <div>
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit" name="submit">Submit</button>
                       </div>

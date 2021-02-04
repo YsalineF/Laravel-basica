@@ -23,9 +23,9 @@
              <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                  <div class="p-6 bg-white border-b border-gray-200">
                    <div class="p-6 hover:underline">
-                       <a href="{{ route('admin.works.index') }}">Retour vers la gestion des works</a>
+                       <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="{{ route('admin.works.index') }}">Retour vers la gestion des works</a>
                    </div>
-                   <h1>Edit d'un work</h1>
+                   <h1 class="text-4xl">Edit d'un work</h1>
                    <hr><br>
                    <form action="{{ route('admin.works.update', $work->id) }}" method="post">
                      {{-- Empêche les tentatives de hacking --}}
