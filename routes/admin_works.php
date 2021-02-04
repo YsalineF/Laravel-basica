@@ -31,3 +31,9 @@ Route::get('/admin/works/edit/form/{work}', [AdminWorks::class, 'edit'])->name('
 // CTRL: AdminWorks
 // ACTION: update
 Route::put('/admin/works/edit/{work}', [AdminWorks::class, 'update'])->name('admin.works.update');
+
+// ADMIN : DELETE UN WORK
+// PATTERN: /admin/works/delete/{work}
+// CTRL: AdminWorks
+// ACTION: delete
+Route::delete('admin/works/delete/{work}', [AdminWorks::class, 'delete'])->name('admin.works.delete');

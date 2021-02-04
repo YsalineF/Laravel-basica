@@ -19,7 +19,14 @@
     </td>
     <td class="border">
       <a href='{{ route('admin.works.edit', $work->id) }}'>Edit</a>
-      <a href="#">Delete</a>
+      <form action="{{ route('admin.works.delete', $work->id) }}" method="post">
+        {{-- Protection contre les tentatives de hacking --}}
+        {{-- Obligation d'utiliser un form car une url a une methode GET et
+              on a besoin de la methode DELETE --}}
+        @csrf
+        {{ method_field('DELETE') }}
+        <button type="submit" name="delete">Delete</button>
+      </form>
     </td>
   </tr>
 @endforeach
