@@ -3,7 +3,7 @@
     - $works : ARRAY(Work)
  --}}
  @foreach($works as $key => $work)
- <div class="item {{$key == 0 ? 'active' : '' }}" style="background-image: url('{{ asset('assets/img/portfolio/' . $work->image . '.jpg') }}')">
+ <div class="item {{$key == 0 ? 'active' : '' }}" style="background-image: url('{{ asset('assets/img/portfolio/' . $work->image) }}')">
    <div class="container">
      <div class="row">
        <div class="col-sm-12">
