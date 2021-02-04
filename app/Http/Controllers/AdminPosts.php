@@ -21,7 +21,7 @@ class AdminPosts extends Controller
       $request->validate([
         'title' => 'required',
         'content' => 'required',
-        'image' => 'required',
+        'image' => 'nullable',
         'categorie_id' => 'required'
       ]);
       Post::create($request->all());
@@ -36,7 +36,7 @@ class AdminPosts extends Controller
       $request->validate([
         'title' => 'required',
         'content' => 'required',
-        'image' => 'required',
+        'image' => 'nullable',
         'categorie_id' => 'required'
       ]);
       $post->update($request->all());
