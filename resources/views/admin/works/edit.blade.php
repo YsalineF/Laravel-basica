@@ -14,7 +14,7 @@
  <x-app-layout>
      <x-slot name="header">
          <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-             {{ __('Ajout d\'un work') }}
+             {{ __('Edit d\'un work') }}
          </h2>
      </x-slot>
 
@@ -25,29 +25,35 @@
                    <div class="p-6 hover:underline">
                        <a href="{{ route('admin.works.index') }}">Retour vers la gestion des works</a>
                    </div>
-                   <h1>Ajout d'un work</h1>
+                   <h1>Edit d'un work</h1>
                    <hr><br>
-                   <form action="{{ route('admin.works.store') }}" method="post">
+                   <form action="{{ route('admin.works.update', $work->id) }}" method="post">
                      {{-- Empêche les tentatives de hacking --}}
                       @csrf
+                      {{ method_field('PUT') }}
                       {{-- TITLE --}}
                       <div class="flex flex-col mb-4">
                         <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="title">Title</label>
-                        <input class="border py-2 px-3 text-grey-darkest" type="text" name="title" id="title">
+                        <input class="border py-2 px-3 text-grey-darkest" type="text" name="title" id="title" value="{{ $work->title }}">
                       </div>
                       {{-- CONTENT --}}
                       <div class="flex flex-col mb-4">
                         <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="content">Content</label>
-                        <textarea class="border py-2 px-3 text-grey-darkest" name="content" id="content" rows="8" cols="80"></textarea>
+                        <textarea class="border py-2 px-3 text-grey-darkest" name="content" id="content" rows="8" cols="80">{{ $work->content }}</textarea>
                       </div>
                       {{-- IMAGE --}}
                       <divclass="flex flex-col mb-4">
-                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="image">Image</label>
+                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="image">Image : {{ $work->image }} </label>
                         <input class="border py-2 px-3 text-grey-darkest" type="file" name="image" id="image">
                       </div>
                       {{-- INSLIDER --}}
                       <div class="flex flex-col mb-4">
-                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="inSlider">In Slider</label>
+                        <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="inSlider">In Slider :
+                          @if ($work->inSlider === 1)
+                            yes
+                          @elseif($work->inSlider === 0)
+                            no
+                        @endif</label>
                         <select class="border py-2 px-6 text-grey-darkest" name="inSlider" id="inSlider">
                             <option value="0">No</option>
                             <option value="1">Yes</option>
@@ -58,7 +64,7 @@
                         <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="client_id">Client</label>
                         <select class="border py-2 px-3 text-grey-darkest" name="client_id" id="client_id">
                           @foreach($clients as $client)
-                            <option value="{{ $client->id }}">{{ $client->name }}</option>
+                            <option value="{{ $client->id }}" @php if($client->id === $work->client_id) {echo 'selected';} @endphp>{{ $client->name }}</option>
                           @endforeach
                         </select>
                       </div>
@@ -68,7 +74,13 @@
                         <p>Press CTRL + click to select multiple tags</p>
                         <select class="border py-2 px-3 text-grey-darkest" name="tags[]" id="tag" multiple>
                             @foreach($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                <option
+                                  @foreach($work->tags as $workTag)
+                                    {{ $workTag->id === $tag->id ? 'selected' : '' }}
+                                  @endforeach
+                                  value="{{ $tag->id }}">
+                                  {{ $tag->name }}
+                              </option>
                             @endforeach
                         </select>
                       </div>

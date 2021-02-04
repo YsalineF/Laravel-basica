@@ -18,7 +18,7 @@
       <p>@include('tags._work_tags', ['tags' => $work->tags])</p>
     </td>
     <td class="border">
-      <a href="#">Edit</a>
+      <a href='{{ route('admin.works.edit', $work->id) }}'>Edit</a>
       <a href="#">Delete</a>
     </td>
   </tr>

@@ -30,4 +30,21 @@ class AdminWorks extends Controller
       return redirect()->route('admin.works.index');
     }
 
+    public function edit(Work $work) {
+      return view('admin.works.edit', compact('work'));
+    }
+
+    public function update(Request $request, Work $work) {
+      $request->validate([
+        'title' => 'required',
+        'content' => 'required',
+        'image' => 'nullable',
+        'inSlider' => 'required',
+        'client_id' => 'required'
+      ]);
+      $work->update($request->all());
+      $work->tags()->sync($request->tags);
+      return redirect()->route('admin.works.index');
+    }
+
 }
