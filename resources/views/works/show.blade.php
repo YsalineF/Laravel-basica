@@ -62,9 +62,17 @@
         </div>
 
         <ul class="grid cs-style-2">
-          @include('works._listShow', ['works' => \App\Models\Work::take(4)->get()])
+          {{-- whereHas permet de définir des contraintes sur la recherche
+                use permet d'utiliser les éléments de $work --}}
+          @include('works._listShow', ['works' => \App\Models\Work::whereHas('tags', function($query) use ($work){
+            // check si le nom du tag correspond au nom du/des tag(s) du work
+            return $query->whereIn('name', $work->tags->pluck('name'));
+          })
+          // Vérifie si l'id du work smiliar correspond à l'id du work affiché (le work "principal")
+          ->where('id', '!=', $work->id)
+          ->take(4)
+          ->get()])
         </ul>
-
       </div>
     </div>
   </div>
