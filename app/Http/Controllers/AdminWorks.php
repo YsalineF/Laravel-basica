@@ -12,4 +12,22 @@ class AdminWorks extends Controller
                     ->get();
       return view('admin.works.index', compact('works'));
     }
+
+    public function create() {
+      return view('admin.works.create');
+    }
+
+    public function store(Request $request) {
+      $request->validate([
+        'title' => 'required',
+        'content' => 'required',
+        'image' => 'nullable',
+        'inSlider' => 'required',
+        'client_id' => 'required'
+      ]);
+      $work = Work::create($request->all());
+      $work->tags()->attach($request->tags);
+      return redirect()->route('admin.works.index');
+    }
+
 }

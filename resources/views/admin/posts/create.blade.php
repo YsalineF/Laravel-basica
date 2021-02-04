@@ -42,7 +42,7 @@
                       </div>
                       {{-- IMAGE --}}
                       <div>
-                        <label for="title">Image</label>
+                        <label for="image">Image</label>
                       </div>
                       <div>
                         <input type="file" name="image" id="image">

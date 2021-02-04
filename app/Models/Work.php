@@ -9,6 +9,8 @@ class Work extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'content', 'image', 'inSlider', 'client_id'];
+
     /**
      * GETTER du client à qui appartient ce work.
      */
