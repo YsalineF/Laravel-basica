@@ -31,6 +31,8 @@ Route::get('/contact-us', function() {
   return view('contact.index');
 })->name('contact');
 
+// ROUTE PAGE DASHBOARD SI ON EST CONNECTE
+// PATTERN: /dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

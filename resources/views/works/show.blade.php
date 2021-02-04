@@ -1,6 +1,6 @@
 {{--
   Variables disponibles :
-    - $work Work
+    - $work: Work
  --}}
 
 @extends('templates.index')

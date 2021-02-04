@@ -1,3 +1,7 @@
+{{--
+  Variables disponibles:
+    - $posts : ARRAY(Post)
+ --}}
 <div class="col-sm-6 featured-news">
   <h2>Latest Blog Posts</h2>
   @foreach($posts as $post)

@@ -1,6 +1,6 @@
 {{--
-Variables disponibles :
-$works
+  Variables disponibles :
+    - $works: ARRAY(Work)
 --}}
 
 @extends('templates.index')

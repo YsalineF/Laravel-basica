@@ -1,6 +1,6 @@
 {{--
   Variables disponibles :
-    - $post Post
+    - $post: Post
  --}}
 
 @extends('templates.index')

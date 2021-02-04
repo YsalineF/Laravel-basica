@@ -1,3 +1,7 @@
+{{--
+  Variables disponibles:
+    - $works : ARRAY(Work)
+ --}}
 @foreach($works as $work)
   <div class="col-md-3 col-sm-6">
     <figure>

@@ -1,8 +1,3 @@
-{{--
-  Variables disponibles :
-
- --}}
-
 @extends('templates.index')
 
 @section('title')

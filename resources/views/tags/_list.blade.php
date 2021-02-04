@@ -1,6 +1,6 @@
 {{--
   Variables disponibles :
-    - $tags ARRAY(Tag)
+    - $tags: ARRAY(Tag)
  --}}
 
 @foreach($tags as $i => $tag)
