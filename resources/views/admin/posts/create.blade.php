@@ -23,7 +23,7 @@
                    </div>
                    <h1 class="text-4xl">Ajout d'un post</h1>
                    <hr><br>
-                   <form action="{{ route('admin.posts.store') }}" method="post">
+                   <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
                      {{-- Empêche les tentatives de hacking --}}
                       @csrf
                       {{-- TITLE --}}

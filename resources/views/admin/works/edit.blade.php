@@ -27,7 +27,7 @@
                    </div>
                    <h1 class="text-4xl">Edit d'un work</h1>
                    <hr><br>
-                   <form action="{{ route('admin.works.update', $work->id) }}" method="post">
+                   <form action="{{ route('admin.works.update', $work->id) }}" method="post" enctype="multipart/form-data">
                      {{-- Empêche les tentatives de hacking --}}
                       @csrf
                       {{ method_field('PUT') }}
