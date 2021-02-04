@@ -9,7 +9,14 @@
     <td>{{ $post->categorie->name }}</td>
     <td>
       <a href="{{ route('admin.posts.edit', $post->id) }}">Edit</a>
-      <a href="#">Delete</a>
+      {{-- Dans un form car une url a une method GET et on a besoin d'une methode DELETE
+            donc obligation d'utiliser un form --}}
+      <form action="{{ route('admin.posts.delete', $post->id) }}" method="post">
+        {{-- Protection contre les tentatives de hacking --}}
+        @csrf
+        {{ method_field('DELETE') }}
+        <button type="submit" name="delete">Delete</button>
+      </form>
     </td>
   </tr>
 @endforeach

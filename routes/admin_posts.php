@@ -31,3 +31,9 @@ Route::get('/admin/posts/edit/form/{post}', [AdminPosts::class, 'edit'])->name('
 // CTRL: AdminPosts
 // ACTION: update
 Route::put('/admin/posts/edit/{post}', [AdminPosts::class, 'update'])->name('admin.posts.update');
+
+// ADMIN : DELETE UN POST
+// PATTERN: /admin/posts/delete/{post}
+// CTRL: AdminPosts
+// ACTION: delete
+Route::delete('admin/posts/delete/{post}', [AdminPosts::class, 'delete'])->name('admin.posts.delete');

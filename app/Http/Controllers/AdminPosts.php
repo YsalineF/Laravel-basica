@@ -42,4 +42,9 @@ class AdminPosts extends Controller
       $post->update($request->all());
       return redirect()->route('admin.posts.index');
     }
+
+    public function delete(Post $post) {
+      $post->delete();
+      return redirect()->route('admin.posts.index');
+    }
 }
