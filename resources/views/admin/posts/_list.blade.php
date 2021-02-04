@@ -8,7 +8,7 @@
     <td>{{ \Carbon\Carbon::parse($post->updated_at)->format('M j, Y') }}</td>
     <td>{{ $post->categorie->name }}</td>
     <td>
-      <a href="#">Edit</a>
+      <a href="{{ route('admin.posts.edit', $post->id) }}">Edit</a>
       <a href="#">Delete</a>
     </td>
   </tr>

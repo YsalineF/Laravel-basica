@@ -27,4 +27,19 @@ class AdminPosts extends Controller
       Post::create($request->all());
       return redirect()->route('admin.posts.index');
     }
+
+    public function edit(Post $post) {
+      return view('admin.posts.edit', compact('post'));
+    }
+
+    public function update(Request $request, Post $post) {
+      $request->validate([
+        'title' => 'required',
+        'content' => 'required',
+        'image' => 'required',
+        'categorie_id' => 'required'
+      ]);
+      $post->update($request->all());
+      return redirect()->route('admin.posts.index');
+    }
 }

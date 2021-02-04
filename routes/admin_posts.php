@@ -19,3 +19,15 @@ Route::get('/admin/posts/add/form', [AdminPosts::class, 'create'])->name('admin.
 // CTRL: AdminPosts
 // ACTION: store
 Route::post('/admin/posts/add/insert', [AdminPosts::class, 'store'])->name('admin.posts.store');
+
+// ADMIN : EDIT D'UN POST : FORMULAIRE
+// PATTERN: /admin/posts/edit/form/{post}
+// CTRL: AdminPosts
+// ACTION: edit
+Route::get('/admin/posts/edit/form/{post}', [AdminPosts::class, 'edit'])->name('admin.posts.edit');
+
+// ADMIN : EDIT D'UN POST : UPDATE
+// PATTERN: /admin/posts/edit/{post}
+// CTRL: AdminPosts
+// ACTION: update
+Route::put('/admin/posts/edit/{post}', [AdminPosts::class, 'update'])->name('admin.posts.update');
