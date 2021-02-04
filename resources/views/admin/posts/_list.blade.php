@@ -3,7 +3,7 @@
     <td>{{ $post->id }}</td>
     <td>{{ $post->title }}</td>
     <td>{!! Str::of($post->content)->limit(50) !!}</td>
-    <td><img src="{{ asset('assets/img/blog/'. $post->image . '.jpg') }}" alt="{{ $post->title }}"></td>
+    <td><img src="{{ asset('assets/img/blog/'. $post->image) }}" alt="{{ $post->image }}"></td>
     <td>{{ \Carbon\Carbon::parse($post->created_at)->format('M j, Y') }}</td>
     <td>{{ \Carbon\Carbon::parse($post->updated_at)->format('M j, Y') }}</td>
     <td>{{ $post->categorie->name }}</td>

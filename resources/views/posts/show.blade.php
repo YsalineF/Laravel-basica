@@ -26,7 +26,7 @@
             </div>
 
             <div class="single-post-image">
-              <img src="{{ asset('assets/img/blog/' . $post->image . '.jpg')}}" alt="{{ $post->title }}">
+              <img src="{{ asset('assets/img/blog/' . $post->image)}}" alt="{{ $post->title }}">
             </div>
             <div class="single-post-info">
               <i class="glyphicon glyphicon-time"></i>{{ \Carbon\Carbon::parse($post->created_at)->format('d M, Y') }} <a href="#" title="Show Comments"><i class="glyphicon glyphicon-comment"></i>11</a>
