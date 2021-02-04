@@ -6,7 +6,7 @@
 <ul class="recent-posts">
   @foreach($posts as $post)
     <li>
-      <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}">
+      <a href="#">
         {{ $post->title }}
       </a>
     </li>
