@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/works.php';
 require __DIR__.'/posts.php';
 require __DIR__.'/admin_posts.php';
+require __DIR__.'/admin_works.php';
 require __DIR__.'/auth.php';
 
 // ROUTE PAR DEFAUT
